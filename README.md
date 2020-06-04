@@ -1,4 +1,6 @@
-VIM-Settings
-############
+## VIM-Settings
 
 Sammlung an VIM-Einstellungen
+
+### Plugins
+
