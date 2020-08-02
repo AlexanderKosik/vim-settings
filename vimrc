@@ -1,6 +1,28 @@
 set number
 set smartcase
 
+" set the runtime path to include Vundle and initialize
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+" Plugin 'gmarik/Vundle.vim'
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'takac/vim-hardtime'
+
+" add all your plugins here (note older versions of Vundle
+" used Bundle instead of Plugin)
+
+" ...
+
+" All of your Plugins must be added before the following line
+" call vundle#end()            " required
+" filetype plugin indent on    " required
+
+" Vundle Plugin Manager end
 " :set path+=/home/...//**5
 " goes down 5 subdirectories
 
@@ -32,7 +54,13 @@ set smartcase
 " path to tags file (c++)
 " :set tags=/home/.../tags
 
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+" PEP8 for python files
+au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4  textwidth=79  expandtab  autoindent  fileformat=unix
+"set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+
+" 2 tabs for C++
+au BufNewFile,BufRead *.cpp set tabstop=2 softtabstop=2  shiftwidth=2 textwidth=120 expandtab autoindent fileformat=unix
+au BufNewFile,BufRead *.h set tabstop=2 softtabstop=2  shiftwidth=2 textwidth=120 expandtab autoindent fileformat=unix
 
 " :nnoremap <F8>: exec "tag /".expand("<cword>")<CR>
 
@@ -48,4 +76,9 @@ set clipboard=unnamed
 
 " change directory with file change
 set autochdir
+
+set cursorline
+:hi CursorLine   cterm=NONE ctermbg=darkgreen ctermfg=white guibg=darkgreen guifg=white
+:hi CursorColumn cterm=NONE ctermbg=darkgreen  ctermfg=white guibg=darkgreen guifg=white
+:nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
