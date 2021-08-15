@@ -1,15 +1,20 @@
 set number
+set rnu
+
 set smartcase
 
 " set the runtime path to include Vundle and initialize
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-" Plugin 'gmarik/Vundle.vim'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'joshdick/onedark.vim'
 " Plugin 'Valloric/YouCompleteMe'
 " Plugin 'takac/vim-hardtime'
 
@@ -19,8 +24,8 @@ set smartcase
 " ...
 
 " All of your Plugins must be added before the following line
-" call vundle#end()            " required
-" filetype plugin indent on    " required
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " Vundle Plugin Manager end
 " :set path+=/home/...//**5
@@ -56,6 +61,7 @@ set smartcase
 
 " PEP8 for python files
 au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4  textwidth=79  expandtab  autoindent  fileformat=unix
+
 "set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " 2 tabs for C++
@@ -64,7 +70,7 @@ au BufNewFile,BufRead *.h set tabstop=2 softtabstop=2  shiftwidth=2 textwidth=12
 
 " :nnoremap <F8>: exec "tag /".expand("<cword>")<CR>
 
-:colorscheme elflord
+:colorscheme onedark
 :set hlsearch
 
 " enable smart search
@@ -72,13 +78,16 @@ au BufNewFile,BufRead *.h set tabstop=2 softtabstop=2  shiftwidth=2 textwidth=12
 :set smartcase
 
 " allow copy paste between different vims
-set clipboard=unnamed
+" needs +X11 flag (check with :version)
+" configure and compile with --enable-gui=auto
+set clipboard=unnamedplus
 
 " change directory with file change
 set autochdir
 
 set cursorline
-:hi CursorLine   cterm=NONE ctermbg=darkgreen ctermfg=white guibg=darkgreen guifg=white
-:hi CursorColumn cterm=NONE ctermbg=darkgreen  ctermfg=white guibg=darkgreen guifg=white
+" :hi CursorLine   cterm=NONE ctermbg=darkgreen ctermfg=white guibg=darkgreen guifg=white
+" :hi CursorColumn cterm=NONE ctermbg=darkgreen  ctermfg=white guibg=darkgreen guifg=white
 :nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
+set backspace=indent,eol,start
