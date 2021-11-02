@@ -4,17 +4,17 @@ set rnu
 set smartcase
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
 
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'joshdick/onedark.vim'
+" Plugin 'gmarik/Vundle.vim'
+" Plugin 'vim-scripts/indentpython.vim'
+" Plugin 'flazz/vim-colorschemes'
+" Plugin 'joshdick/onedark.vim'
 " Plugin 'Valloric/YouCompleteMe'
 " Plugin 'takac/vim-hardtime'
 
@@ -24,15 +24,15 @@ Plugin 'joshdick/onedark.vim'
 " ...
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+" call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Vundle Plugin Manager end
 " :set path+=/home/...//**5
 " goes down 5 subdirectories
 
-" macro to switch headers in c++ (.cc and .h)
-:nnoremap <F4> :e %:p:s,.h$,.X123X,:s,.cc$,.h,:s,.X123X$,.cc,<CR>
+" macro to switch headers in c++ (.cpp and .h)
+:nnoremap <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 " shortcut for buffer
 :nnoremap ,b :ls<CR>:buffer<Space>
@@ -70,7 +70,7 @@ au BufNewFile,BufRead *.h set tabstop=2 softtabstop=2  shiftwidth=2 textwidth=12
 
 " :nnoremap <F8>: exec "tag /".expand("<cword>")<CR>
 
-:colorscheme onedark
+" :colorscheme onedark
 :set hlsearch
 
 " enable smart search
@@ -80,14 +80,16 @@ au BufNewFile,BufRead *.h set tabstop=2 softtabstop=2  shiftwidth=2 textwidth=12
 " allow copy paste between different vims
 " needs +X11 flag (check with :version)
 " configure and compile with --enable-gui=auto
+" Alternative: Compile with: ./configure --with-features=huge
+" Make sure, you 'make install' after compile
 set clipboard=unnamedplus
 
 " change directory with file change
 set autochdir
 
 set cursorline
-" :hi CursorLine   cterm=NONE ctermbg=darkgreen ctermfg=white guibg=darkgreen guifg=white
-" :hi CursorColumn cterm=NONE ctermbg=darkgreen  ctermfg=white guibg=darkgreen guifg=white
+:hi CursorLine   cterm=NONE ctermbg=darkgreen ctermfg=white guibg=darkgreen guifg=white
+:hi CursorColumn cterm=NONE ctermbg=darkgreen  ctermfg=white guibg=darkgreen guifg=white
 :nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
 set backspace=indent,eol,start
