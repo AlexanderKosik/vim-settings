@@ -70,7 +70,7 @@ au BufNewFile,BufRead *.h set tabstop=2 softtabstop=2  shiftwidth=2 textwidth=12
 
 " :nnoremap <F8>: exec "tag /".expand("<cword>")<CR>
 
-" :colorscheme onedark
+:colorscheme elflord
 :set hlsearch
 
 " enable smart search
