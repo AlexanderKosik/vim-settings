@@ -4,8 +4,8 @@ set rnu
 set smartcase
 
 " set the runtime path to include Vundle and initialize
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -14,9 +14,10 @@ set smartcase
 " Plugin 'gmarik/Vundle.vim'
 " Plugin 'vim-scripts/indentpython.vim'
 " Plugin 'flazz/vim-colorschemes'
-" Plugin 'joshdick/onedark.vim'
+Plugin 'joshdick/onedark.vim'
 " Plugin 'Valloric/YouCompleteMe'
-" Plugin 'takac/vim-hardtime'
+
+Plugin 'davidhalter/jedi-vim'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
@@ -24,7 +25,7 @@ set smartcase
 " ...
 
 " All of your Plugins must be added before the following line
-" call vundle#end()            " required
+call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Vundle Plugin Manager end
@@ -70,7 +71,7 @@ au BufNewFile,BufRead *.h set tabstop=2 softtabstop=2  shiftwidth=2 textwidth=12
 
 " :nnoremap <F8>: exec "tag /".expand("<cword>")<CR>
 
-:colorscheme elflord
+:colorscheme onedark
 :set hlsearch
 
 " enable smart search
@@ -87,9 +88,9 @@ set clipboard=unnamedplus
 " change directory with file change
 set autochdir
 
-set cursorline
-:hi CursorLine   cterm=NONE ctermbg=darkgreen ctermfg=white guibg=darkgreen guifg=white
-:hi CursorColumn cterm=NONE ctermbg=darkgreen  ctermfg=white guibg=darkgreen guifg=white
-:nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+" set cursorline
+" :hi CursorLine   cterm=NONE ctermbg=darkgreen ctermfg=white guibg=darkgreen guifg=white
+" :hi CursorColumn cterm=NONE ctermbg=darkgreen  ctermfg=white guibg=darkgreen guifg=white
+" :nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
 set backspace=indent,eol,start
