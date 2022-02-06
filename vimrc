@@ -1,9 +1,12 @@
 set number
-set rnu
-
 set smartcase
 
-" set the runtime path to include Vundle and initialize
+" Fuzzy finder
+set rtp+=~/.fzf
+
+" ----------------------------------------------
+" Vundle plugin manager
+" ----------------------------------------------
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -16,17 +19,24 @@ call vundle#begin()
 " Plugin 'flazz/vim-colorschemes'
 Plugin 'joshdick/onedark.vim'
 " Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-airline/vim-airline'
 
 Plugin 'davidhalter/jedi-vim'
-
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
-
-" ...
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+
+" ----------------------------------------------
+" Other plugin manager
+" ----------------------------------------------
+call plug#begin()
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
 
 " Vundle Plugin Manager end
 " :set path+=/home/...//**5
@@ -55,7 +65,17 @@ filetype plugin indent on    " required
 :map <C-right> <ESC>:bn<CR>
 :map <C-left> <ESC>:bp<CR>
 
+" use gj instead of j
+:nnoremap j gj
+:nnoremap k gk
+
 :syntax on
+
+" Add FZF as ctrl+p
+noremap <silent> <C-P> :GFiles<CR>
+
+" Add Rg as Ctrl F 
+noremap <silent> <C-F> :Rg<CR>
 
 " path to tags file (c++)
 " :set tags=/home/.../tags
@@ -94,3 +114,4 @@ set autochdir
 " :nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
 set backspace=indent,eol,start
+
