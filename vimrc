@@ -22,6 +22,7 @@ Plugin 'joshdick/onedark.vim'
 Plugin 'vim-airline/vim-airline'
 
 Plugin 'davidhalter/jedi-vim'
+Plugin 'puremourning/vimspector'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -42,6 +43,8 @@ call plug#end()
 " :set path+=/home/...//**5
 " goes down 5 subdirectories
 
+let mapleader = ","
+
 " macro to switch headers in c++ (.cpp and .h)
 :nnoremap <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
@@ -51,14 +54,8 @@ call plug#end()
 " find whitespaces on end of line
 :nnoremap <F6> :%s/\s\+$//g<CR>
 
-" call make - replace with something else if on another system/language
-:nnoremap <F5> :w<CR>:make<CR>
-
-" find in ctag file 
-:nnoremap <F8> :tag /<c-r><c-w><CR>
-
-" activate search
-:nnoremap <F11> :set hlsearch<CR>
+" Run current file
+" :nnoremap <F9> :! %:p<enter>
 
 " clear search
 :nnoremap <F12> :nohl<CR>
@@ -71,6 +68,20 @@ call plug#end()
 
 :syntax on
 
+
+" ----------
+"  VIMSPECTOR
+"  ---------
+let g:vimspector_enable_mappings = 'HUMAN'
+" mnemonic 'di' = 'debug inspect' 
+" for normal mode - the word under the cursor
+nmap <Leader>di <Plug>VimspectorBalloonEval
+" for visual mode, the visually selected text
+xmap <Leader>di <Plug>VimspectorBalloonEval
+
+" --------------
+" FZF
+" --------------
 " Add FZF as ctrl+p
 noremap <silent> <C-P> :GFiles<CR>
 
@@ -91,8 +102,10 @@ au BufNewFile,BufRead *.h set tabstop=2 softtabstop=2  shiftwidth=2 textwidth=12
 
 " :nnoremap <F8>: exec "tag /".expand("<cword>")<CR>
 
-:colorscheme onedark
+" :colorscheme onedark
+:colorscheme elflord
 :set hlsearch
+:set incsearch
 
 " enable smart search
 :set ignorecase
