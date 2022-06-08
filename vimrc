@@ -6,6 +6,9 @@ set rtp+=~/.fzf
 
 " ----------------------------------------------
 " Vundle plugin manager
+" Installation:
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" Danach: :PluginInstall
 " ----------------------------------------------
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -31,6 +34,9 @@ filetype plugin indent on    " required
 
 " ----------------------------------------------
 " Other plugin manager
+" Installation:
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" Danach: :PlugInstall
 " ----------------------------------------------
 call plug#begin()
 
